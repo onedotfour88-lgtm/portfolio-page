@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이시헌 | 지원 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/docx@8.2.2/build/index.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-height { min-height: 80vh; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-bold text-lg text-slate-900">이시헌 Portfolio Editor</span>
+            <div class="flex gap-2">
+                <button onclick="saveAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm px-3 py-2 rounded-lg transition shadow-sm">
+                    💾 로컬 저장
+                </button>
+                <button onclick="pushToGit()" class="bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm px-3 py-2 rounded-lg transition shadow-sm flex items-center gap-1">
+                    🚀 GitHub 반영
+                </button>
+                <button onclick="exportToWord()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm px-3 py-2 rounded-lg transition shadow-sm">
+                    📄 Word (.docx)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-height flex flex-col justify-center max-w-5xl mx-auto px-6 pt-24 pb-12">
+        <div class="max-w-3xl">
+            <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Portfolio & Application</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mt-2 mb-4">이시헌</h1>
+            <p class="text-xl text-slate-600 leading-relaxed mb-8">
+                고난 속에서도 포기하지 않는 끈기와 규칙적인 루틴으로 문제를 끝까지 해결해내는 개발자입니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="#story" class="p-5 bg-white rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition">
+                <div class="text-indigo-600 font-bold mb-1">01. 이야기 &rarr;</div>
+                <div class="text-slate-900 font-semibold">회복과 성장 스토리</div>
+            </a>
+            <a href="#metrics" class="p-5 bg-white rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition">
+                <div class="text-indigo-600 font-bold mb-1">02. 숫자의 근거 &rarr;</div>
+                <div class="text-slate-900 font-semibold">13주 기록 지표</div>
+            </a>
+            <a href="#projects" class="p-5 bg-white rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition">
+                <div class="text-indigo-600 font-bold mb-1">03. 대표작 &rarr;</div>
+                <div class="text-slate-900 font-semibold">프로젝트 & 논문</div>
+            </a>
+            <a href="#documents" class="p-5 bg-white rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition">
+                <div class="text-indigo-600 font-bold mb-1">04. 지원 서류 &rarr;</div>
+                <div class="text-slate-900 font-semibold">이력서 · 자소서 · 경력</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 01. 성장 이야기 -->
+    <section id="story" class="py-12 border-t border-slate-200 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">01. 성장 이야기</h2>
+            <textarea id="input-story" rows="6" class="w-full p-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none text-slate-800 leading-relaxed" placeholder="성장 이야기를 작성해 주세요..."></textarea>
+        </div>
+    </section>
+
+    <!-- 02. 데이터 지표 -->
+    <section id="metrics" class="py-12 border-t border-slate-200 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">02. 회복탄력성과 과제지속력 (데이터 지표)</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <div class="text-xs text-slate-500 mb-1">총 기록 일수</div>
+                    <div class="text-3xl font-extrabold text-indigo-600">31일</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <div class="text-xs text-slate-500 mb-1">지각/결석률</div>
+                    <div class="text-3xl font-extrabold text-indigo-600">0%</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <div class="text-xs text-slate-500 mb-1">평균 호흡 시간</div>
+                    <div class="text-3xl font-extrabold text-indigo-600">4.12분</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
+                    <div class="text-xs text-slate-500 mb-1">실천 완료율</div>
+                    <div class="text-3xl font-extrabold text-indigo-600">100%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. 대표작 -->
+    <section id="projects" class="py-12 border-t border-slate-200 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">03. 대표작</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 논문 카드 -->
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200 space-y-4">
+                    <span class="text-xs font-bold text-indigo-600 tracking-wider">PAPER / ARTICLE</span>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">논문 제목</label>
+                        <input id="input-paper-title" type="text" class="w-full mt-1 p-2 border rounded font-bold text-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">요약 및 성과</label>
+                        <textarea id="input-paper-desc" rows="3" class="w-full mt-1 p-2 border rounded text-sm"></textarea>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs text-slate-500 font-bold">연관 링크 목록</label>
+                            <button onclick="addLinkInput('paper-links-container')" class="text-xs text-indigo-600 hover:text-indigo-800 font-bold">+ 링크 추가</button>
+                        </div>
+                        <div id="paper-links-container" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- 앱 카드 -->
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200 space-y-4">
+                    <span class="text-xs font-bold text-slate-500 tracking-wider">APPLICATION</span>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">앱 이름</label>
+                        <input id="input-app-title" type="text" class="w-full mt-1 p-2 border rounded font-bold text-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">설명</label>
+                        <textarea id="input-app-desc" rows="3" class="w-full mt-1 p-2 border rounded text-sm"></textarea>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs text-slate-500 font-bold">배포 및 레포지토리 링크</label>
+                            <button onclick="addLinkInput('app-links-container')" class="text-xs text-indigo-600 hover:text-indigo-800 font-bold">+ 링크 추가</button>
+                        </div>
+                        <div id="app-links-container" class="space-y-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. 이력서 -->
+    <section id="documents" class="py-12 border-t border-slate-200 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-6 space-y-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">04. 지원 서류 인적사항 및 자소서</h2>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-4">
+                <h3 class="font-bold text-slate-900 border-b pb-2">기본 인적사항</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">성명</label>
+                        <input id="input-name" type="text" class="w-full mt-1 p-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">연락처/이메일</label>
+                        <input id="input-contact" type="text" class="w-full mt-1 p-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">나이</label>
+                        <input id="input-age" type="text" class="w-full mt-1 p-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold">지원 분야</label>
+                        <input id="input-job" type="text" class="w-full mt-1 p-2 border rounded">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200">
+                <h3 class="font-bold text-slate-900 border-b pb-2 mb-3">자기소개서 요약</h3>
+                <textarea id="input-resume-body" rows="4" class="w-full p-3 border rounded-lg text-sm leading-relaxed"></textarea>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-slate-900 text-slate-400 text-center text-xs">
+        &copy; 2026 이시헌. All rights reserved.
+    </footer>
+
+    <script>
+        function addLinkInput(containerId, urlValue = "") {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = "flex gap-2 items-center link-item";
+            div.innerHTML = `
+                <input type="text" value="${urlValue}" class="link-url-input flex-1 p-2 border rounded text-xs text-indigo-600 font-mono" placeholder="https://">
+                <button onclick="openLink(this)" type="button" class="px-2 py-1.5 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 rounded text-xs font-semibold whitespace-nowrap">🔗 바로가기</button>
+                <button onclick="this.parentElement.remove()" type="button" class="px-2 py-1.5 text-rose-500 hover:bg-rose-50 rounded text-xs">삭제</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function openLink(btnElement) {
+            const input = btnElement.parentElement.querySelector('.link-url-input');
+            let url = input.value.trim();
+            if (!url) return alert("이동할 URL을 입력해 주세요.");
+            if (!url.startsWith('http://') && !url.startsWith('https://')) url = 'https://' + url;
+            window.open(url, '_blank');
+        }
+
+        function getLinkValues(containerId) {
+            const inputs = document.querySelectorAll(`#${containerId} .link-url-input`);
+            const urls = [];
+            inputs.forEach(input => { if (input.value.trim()) urls.push(input.value.trim()); });
+            return urls;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/data')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('input-story').value = data.story || '';
+                    document.getElementById('input-paper-title').value = data.paper_title || '';
+                    document.getElementById('input-paper-desc').value = data.paper_desc || '';
+                    document.getElementById('input-app-title').value = data.app_title || '';
+                    document.getElementById('input-app-desc').value = data.app_desc || '';
+                    document.getElementById('input-name').value = data.name || '';
+                    document.getElementById('input-contact').value = data.contact || '';
+                    document.getElementById('input-age').value = data.age || '';
+                    document.getElementById('input-job').value = data.job || '';
+                    document.getElementById('input-resume-body').value = data.resume_body || '';
+
+                    (data.paper_links || []).forEach(url => addLinkInput('paper-links-container', url));
+                    if (!(data.paper_links || []).length) addLinkInput('paper-links-container');
+
+                    (data.app_links || []).forEach(url => addLinkInput('app-links-container', url));
+                    if (!(data.app_links || []).length) addLinkInput('app-links-container');
+                });
+        });
+
+        function saveAllData() {
+            const payload = {
+                story: document.getElementById('input-story').value,
+                paper_title: document.getElementById('input-paper-title').value,
+                paper_desc: document.getElementById('input-paper-desc').value,
+                paper_links: getLinkValues('paper-links-container'),
+                app_title: document.getElementById('input-app-title').value,
+                app_desc: document.getElementById('input-app-desc').value,
+                app_links: getLinkValues('app-links-container'),
+                name: document.getElementById('input-name').value,
+                contact: document.getElementById('input-contact').value,
+                age: document.getElementById('input-age').value,
+                job: document.getElementById('input-job').value,
+                resume_body: document.getElementById('input-resume-body').value
+            };
+
+            return fetch('/api/data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(res => {
+                alert(res.message);
+                return res;
+            });
+        }
+
+        // 🚀 버튼 클릭으로 로컬 저장 + Git Push 한 번에 수행
+        function pushToGit() {
+            saveAllData().then(() => {
+                const btn = event.target;
+                btn.innerText = "⏳ 푸쉬 중...";
+                btn.disabled = true;
+
+                fetch('/api/git-push', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(res => {
+                        alert(res.message);
+                    })
+                    .catch(err => alert("Git Push 오류: " + err))
+                    .finally(() => {
+                        btn.innerText = "🚀 GitHub 반영";
+                        btn.disabled = false;
+                    });
+            });
+        }
+
+        function exportToWord() {
+            const { Document, Packer, Paragraph, HeadingLevel } = window.docx;
+            const name = document.getElementById('input-name').value;
+            const doc = new Document({
+                sections: [{
+                    children: [
+                        new Paragraph({ text: "입사지원서 및 경력기술서", heading: HeadingLevel.HEADING_1 }),
+                        new Paragraph({ text: `성명: ${name}` }),
+                        new Paragraph({ text: `지원분야: ${document.getElementById('input-job').value}` }),
+                        new Paragraph({ text: `자기소개: ${document.getElementById('input-resume-body').value}` })
+                    ]
+                }]
+            });
+            Packer.toBlob(doc).then(blob => saveAs(blob, `${name}_지원서류.docx`));
+        }
+    </script>
+</body>
+</html>
